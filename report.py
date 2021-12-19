@@ -85,6 +85,10 @@ def main():
 
             response = post(report_id)
 
+            if response.status_code == 401:
+                print('Авторизация не пройдена.')
+                break
+
             if response.status_code in {201, 409}:
 
                 if response.status_code == 201:
